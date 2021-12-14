@@ -6,7 +6,7 @@ const userRoutes = require('./routes/user')
 const { urlencoded } = require('body-parser')
 const app = express()
 
-// Environment variable 
+// Environment variable new
 env.config()
 const PORT = process.env.PORT || 2000
 
