@@ -2,7 +2,8 @@ const express =require('express')
 const env = require('dotenv')
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
-const userRoutes = require('./routes/user')
+const authRoutes = require('./routes/auth')
+const adminRoutes = require('./routes/admin/auth')
 const { urlencoded } = require('body-parser')
 const app = express()
 
@@ -24,7 +25,8 @@ mongoose.connect(
 //     extended: true
 //   }));
 app.use(bodyParser.json());
-app.use('/api',userRoutes)
+app.use('/api',authRoutes)
+app.use('/api',adminRoutes)
 
 app.get('/', (req, res, next) => {
     res.status(200).json({
